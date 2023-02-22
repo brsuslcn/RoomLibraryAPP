@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="129dp"
+        android:text="DELETE PERSON"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="411dp"
+        android:layout_height="332dp"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnPersonDelete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Person ID" />
+
+        <Spinner
+            android:id="@+id/spnID"
+            android:layout_width="150dp"
+            android:layout_marginTop="13dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/edName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text = "Name"
+            android:textSize="15sp"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/edSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Surname"
+            android:textSize="15sp"
+            android:layout_marginTop="15dp"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/edAge"
+            android:layout_width="wrap_content"
+            android:text = "Age"
+            android:textSize="15sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="10" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnPersonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="92dp"
+        android:text="Delete Person"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
