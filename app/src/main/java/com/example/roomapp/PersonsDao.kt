@@ -12,5 +12,8 @@ interface PersonsDao {
     @Insert
     suspend fun addPerson(person : Persons)
 
+    @Query("SELECT *FROM persons WHERE person_id=:person_id")
+    suspend fun getPersonInfo(person_id : Int) : Persons
+
 
 }

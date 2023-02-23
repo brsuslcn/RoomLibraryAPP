@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="411dp"
         android:layout_height="332dp"
@@ -35,44 +35,115 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="84dp"
+            android:text="Age:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dAge"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dSurname" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Surname:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/dSurname"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Person ID" />
+            android:layout_marginTop="24dp"
+            android:text="Select Person ID"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spnID"
-            android:layout_width="150dp"
+            android:layout_width="75dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.485"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
+            android:id="@+id/dName"
+            android:layout_width="85dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:paddingLeft="5dp"
+            android:text="Name"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/spnID" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Name:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/dName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spnID" />
+
+        <TextView
+            android:id="@+id/dSurname"
+            android:layout_width="123dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:paddingLeft="5dp"
+            android:text="Surname"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/dName" />
+
+        <TextView
+            android:id="@+id/dAge"
+            android:layout_width="74dp"
+            android:layout_height="30dp"
             android:layout_marginTop="13dp"
-            android:layout_height="wrap_content" />
+            android:layout_marginBottom="81dp"
+            android:ems="10"
+            android:paddingLeft="5dp"
+            android:text="Age"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/dSurname" />
 
-        <TextView
-            android:id="@+id/edName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text = "Name"
-            android:textSize="15sp"
-            android:ems="10" />
-
-        <TextView
-            android:id="@+id/edSurname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text = "Surname"
-            android:textSize="15sp"
-            android:layout_marginTop="15dp"
-            android:ems="10" />
-
-        <TextView
-            android:id="@+id/edAge"
-            android:layout_width="wrap_content"
-            android:text = "Age"
-            android:textSize="15sp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:ems="10" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/btnPersonDelete"

@@ -22,8 +22,8 @@ class DatabaseAdapter(private val personList : List<Persons>) : RecyclerView.Ada
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem = personList[position]
                 binding.apply{
+                val currentItem = personList[position]
                 txtName.text = currentItem.person_name
                 txtSurname.text = currentItem.person_surname
                 txtAge.text = currentItem.person_yas.toString()
