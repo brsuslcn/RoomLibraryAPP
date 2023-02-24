@@ -1,5 +1,6 @@
 package com.example.roomapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.ArrayAdapter
@@ -56,6 +57,10 @@ class AddPerson_Activity : AppCompatActivity() {
             }
 
         }
+    }
+
+    override fun onBackPressed() {
+        startActivity(Intent(this,MainActivity::class.java))
     }
 }
 

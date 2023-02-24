@@ -27,6 +27,7 @@ class DatabaseAdapter(private val personList : List<Persons>) : RecyclerView.Ada
                 txtName.text = currentItem.person_name
                 txtSurname.text = currentItem.person_surname
                 txtAge.text = currentItem.person_yas.toString()
+                txtID.text = currentItem.person_id.toString()
         }
     }
 

@@ -38,11 +38,13 @@ class MainActivity : AppCompatActivity() {
         binding.btnInsert.setOnClickListener()
         {
             startActivity(Intent(this,AddPerson_Activity::class.java))
+            finish()
         }
 
         binding.btnDelete.setOnClickListener()
         {
             startActivity(Intent(this,DeletePerson_Activity::class.java))
+            finish()
         }
 
     }

@@ -1,5 +1,6 @@
 package com.example.roomapp
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,26 @@ class DeletePerson_Activity : AppCompatActivity() {
 
         getALLID()
 
+        binding.btnPersonDelete.setOnClickListener()
+        {
+
+                val job = CoroutineScope(Dispatchers.Main).launch {
+                    binding.apply {
+                        val deletedPerson = Persons(spnID.selectedItem.toString().toInt(),"person","person",0)
+                        pdao.deletePerson(deletedPerson)
+
+                        getALLID()
+
+
+                    }
+                    binding.spnID.setSelection(0)
+                    binding.dName.text = "SELECT"
+                    binding.dSurname.text = "SELECT"
+                    binding.dAge.text = "SELECT"
+
+                }
+        }
+
 
 
         binding.spnID.onItemSelectedListener = object : AdapterView.OnItemClickListener,
@@ -39,35 +60,28 @@ class DeletePerson_Activity : AppCompatActivity() {
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                binding.apply {
-                    if(p2!=0)
-                    {
-                        val job = CoroutineScope(Dispatchers.Main).launch {
-                            var getInfo = pdao.getPersonInfo(p2)
-                            dName.text =getInfo.person_name
-                            dSurname.text = getInfo.person_surname
-                            dAge.text = getInfo.person_yas.toString()
-                        }
-                    }
-
-                }
-
+                     getInfo()
 
 
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
 
         }
 
     }
 
+    override fun onBackPressed() {
+            startActivity(Intent(this,MainActivity::class.java))
+    }
+
 
     fun getALLID()
     {
+
         val idList = ArrayList<String>()
+        val arrayAdapter : ArrayAdapter<String> = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,idList)
         val job = CoroutineScope(Dispatchers.Main).launch {
             val getAll = pdao.allPersons()
             for (i in getAll)
@@ -75,12 +89,22 @@ class DeletePerson_Activity : AppCompatActivity() {
                 idList.add(i.person_id.toString())
             }
 
+            binding.spnID.adapter = arrayAdapter
+
         }
 
-        idList.add("NONE")
-        val arrayAdapter : ArrayAdapter<String> = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,idList)
-        binding.spnID.adapter = arrayAdapter
+    }
 
+    fun getInfo()
+    {
+        binding.apply {
+            val job = CoroutineScope(Dispatchers.Main).launch {
+                var getInfo = pdao.getPersonInfo(binding.spnID.selectedItem.toString().toInt())
+                dName.text = getInfo.person_name
+                dSurname.text = getInfo.person_surname
+                dAge.text = getInfo.person_yas.toString()
+            }
+        }
     }
 
 
