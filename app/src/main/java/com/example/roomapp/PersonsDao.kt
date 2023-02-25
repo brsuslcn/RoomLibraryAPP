@@ -1,9 +1,6 @@
 package com.example.roomapp
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface PersonsDao {
@@ -18,6 +15,9 @@ interface PersonsDao {
 
     @Delete
     suspend fun deletePerson(person:Persons)
+
+    @Update
+    suspend fun updatePerson(person:Persons)
 
 
 }

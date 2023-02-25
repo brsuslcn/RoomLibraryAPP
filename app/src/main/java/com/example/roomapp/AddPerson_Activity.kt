@@ -3,14 +3,8 @@ package com.example.roomapp
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.roomapp.databinding.ActivityAddPersonBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -59,8 +53,10 @@ class AddPerson_Activity : AppCompatActivity() {
         }
     }
 
+
     override fun onBackPressed() {
         startActivity(Intent(this,MainActivity::class.java))
+        finish()
     }
 }
 

@@ -6,70 +6,64 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.example.roomapp.databinding.ActivityDeletePersonBinding
+import android.widget.Toast
+import com.example.roomapp.databinding.ActivityUpdatePersonBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
-class DeletePerson_Activity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityDeletePersonBinding
+class UpdatePerson_Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityUpdatePersonBinding
     private lateinit var db : Database
     private lateinit var pdao : PersonsDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDeletePersonBinding.inflate(layoutInflater)
+        binding = ActivityUpdatePersonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         db = Database.databaseAccess(this)!!
         pdao = db.getPersonsDao()
 
-        getALLID()
+        getAllID()
 
-        binding.btnPersonDelete.setOnClickListener()
+        binding.btnPersonUpdate.setOnClickListener()
         {
-
+            binding.apply {
                 val job = CoroutineScope(Dispatchers.Main).launch {
-                    binding.apply {
-                        val deletedPerson = Persons(spnID.selectedItem.toString().toInt(),"person","person",0)
-                        pdao.deletePerson(deletedPerson)
-
-                        getALLID()
-
-                    }
-                    binding.spnID.setSelection(0)
-                    binding.dName.text = "SELECT"
-                    binding.dSurname.text = "SELECT"
-                    binding.dAge.text = "SELECT"
-
+                    val updatedPerson = Persons(
+                        spnID.selectedItem.toString().toInt(),
+                        updName.text.toString(),
+                        updSurname.text.toString(),
+                        updAge.text.toString().toInt()
+                    )
+                    pdao.updatePerson(updatedPerson)
+                    Toast.makeText(applicationContext, "Updated Successfully!", Toast.LENGTH_SHORT)
+                        .show()
                 }
+            }
+
         }
 
 
-
-        binding.spnID.onItemSelectedListener = object : AdapterView.OnItemClickListener,
-            AdapterView.OnItemSelectedListener {
+        binding.spnID.onItemSelectedListener = object : AdapterView.OnItemClickListener,AdapterView.OnItemSelectedListener{
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
             }
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 binding.apply {
                     val job = CoroutineScope(Dispatchers.Main).launch {
-                        val getInfo = pdao.getPersonInfo(binding.spnID.selectedItem.toString().toInt())
-                        dName.text = getInfo.person_name
-                        dSurname.text = getInfo.person_surname
-                        dAge.text = getInfo.person_yas.toString()
+                        val getinfo = pdao.getPersonInfo(binding.spnID.selectedItem.toString().toInt())
+                        updName.setText(getinfo.person_name)
+                        updSurname.setText(getinfo.person_surname)
+                        updAge.setText(getinfo.person_yas.toString())
                     }
                 }
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
-
         }
-
     }
 
     override fun onBackPressed() {
@@ -77,20 +71,19 @@ class DeletePerson_Activity : AppCompatActivity() {
         finish()
     }
 
-
-    fun getALLID()
+    private fun getAllID()
     {
         val idList = ArrayList<String>()
-        val arrayAdapter : ArrayAdapter<String> = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,idList)
+        val arrayAdapter : ArrayAdapter<String> = ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, idList)
         val job = CoroutineScope(Dispatchers.Main).launch {
             val getAll = pdao.allPersons()
-            for (i in getAll)
+            for(i in getAll)
             {
                 idList.add(i.person_id.toString())
             }
 
             binding.spnID.adapter = arrayAdapter
         }
-
     }
+
 }

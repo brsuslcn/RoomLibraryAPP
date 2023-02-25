@@ -2,15 +2,7 @@ package com.example.roomapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
@@ -44,6 +36,12 @@ class MainActivity : AppCompatActivity() {
         binding.btnDelete.setOnClickListener()
         {
             startActivity(Intent(this,DeletePerson_Activity::class.java))
+            finish()
+        }
+
+        binding.btnUpdate.setOnClickListener()
+        {
+            startActivity(Intent(this,UpdatePerson_Activity::class.java))
             finish()
         }
 

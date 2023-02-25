@@ -1,11 +1,8 @@
 package com.example.roomapp
 
-import android.util.Log
+
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomapp.databinding.ContentMainBinding
 
@@ -28,6 +25,7 @@ class DatabaseAdapter(private val personList : List<Persons>) : RecyclerView.Ada
                 txtSurname.text = currentItem.person_surname
                 txtAge.text = currentItem.person_yas.toString()
                 txtID.text = currentItem.person_id.toString()
+                imageView.setImageResource(R.drawable.avatar)
         }
     }
 

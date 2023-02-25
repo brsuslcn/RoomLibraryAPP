@@ -18,8 +18,8 @@ abstract class Database : RoomDatabase() {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         Database::class.java,
-                        "registers1.sqlite"
-                    ).createFromAsset("registers1.sqlite").build()
+                        "pregisters.sqlite"
+                    ).createFromAsset("pregisters.sqlite").build()
                 }
 
             }
