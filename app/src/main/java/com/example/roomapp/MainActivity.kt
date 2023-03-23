@@ -4,7 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.roomapp.data.PersonsDao
 import com.example.roomapp.databinding.ActivityMainBinding
+import com.example.roomapp.repository.Database
+import com.example.roomapp.view.AddPerson_Activity
+import com.example.roomapp.view.DatabaseAdapter
+import com.example.roomapp.view.DeletePerson_Activity
+import com.example.roomapp.view.UpdatePerson_Activity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,19 +35,19 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnInsert.setOnClickListener()
         {
-            startActivity(Intent(this,AddPerson_Activity::class.java))
+            startActivity(Intent(this, AddPerson_Activity::class.java))
             finish()
         }
 
         binding.btnDelete.setOnClickListener()
         {
-            startActivity(Intent(this,DeletePerson_Activity::class.java))
+            startActivity(Intent(this, DeletePerson_Activity::class.java))
             finish()
         }
 
         binding.btnUpdate.setOnClickListener()
         {
-            startActivity(Intent(this,UpdatePerson_Activity::class.java))
+            startActivity(Intent(this, UpdatePerson_Activity::class.java))
             finish()
         }
 

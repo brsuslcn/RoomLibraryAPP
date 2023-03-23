@@ -1,10 +1,10 @@
-package com.example.roomapp
-
-
+package com.example.roomapp.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.roomapp.R
 import com.example.roomapp.databinding.ContentMainBinding
+import com.example.roomapp.model.Persons
 
 private lateinit var binding: ContentMainBinding
 

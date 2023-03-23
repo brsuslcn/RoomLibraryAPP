@@ -1,4 +1,4 @@
-package com.example.roomapp
+package com.example.roomapp.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.example.roomapp.repository.Database
+import com.example.roomapp.MainActivity
+import com.example.roomapp.model.Persons
+import com.example.roomapp.data.PersonsDao
 import com.example.roomapp.databinding.ActivityDeletePersonBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -73,7 +77,7 @@ class DeletePerson_Activity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 

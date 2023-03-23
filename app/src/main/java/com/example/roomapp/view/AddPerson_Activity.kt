@@ -1,10 +1,14 @@
-package com.example.roomapp
+package com.example.roomapp.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.roomapp.repository.Database
+import com.example.roomapp.MainActivity
+import com.example.roomapp.model.Persons
+import com.example.roomapp.data.PersonsDao
 import com.example.roomapp.databinding.ActivityAddPersonBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,7 +59,7 @@ class AddPerson_Activity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 }

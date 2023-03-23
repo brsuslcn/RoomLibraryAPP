@@ -1,6 +1,7 @@
-package com.example.roomapp
+package com.example.roomapp.data
 
 import androidx.room.*
+import com.example.roomapp.model.Persons
 
 @Dao
 interface PersonsDao {
@@ -14,10 +15,10 @@ interface PersonsDao {
     suspend fun getPersonInfo(person_id : Int) : Persons
 
     @Delete
-    suspend fun deletePerson(person:Persons)
+    suspend fun deletePerson(person: Persons)
 
     @Update
-    suspend fun updatePerson(person:Persons)
+    suspend fun updatePerson(person: Persons)
 
 
 }

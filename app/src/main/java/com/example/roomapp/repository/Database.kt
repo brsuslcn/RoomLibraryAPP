@@ -1,8 +1,10 @@
-package com.example.roomapp
+package com.example.roomapp.repository
 
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.roomapp.model.Persons
+import com.example.roomapp.data.PersonsDao
 
 
 @androidx.room.Database(entities = [Persons::class], version = 1)
